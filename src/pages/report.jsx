@@ -13,7 +13,7 @@ const Report = () => {
   const [reportData, setReportData] = useState({});
   const [reportedBy, setReportedBy] = useState({});
   const [userVisible, setUserVisible] = useState(false);
-  const [checked, setChecked] = useState(!reportData.isVerified);
+  const [checked, setChecked] = useState(reportData.isVerified);
   const [coord, setCoord] = useState({
     latitude: "",
     longitude: "",
@@ -32,7 +32,7 @@ const Report = () => {
             description: res.data.msg,
           });
         } else {
-          res.data.errors.map((error) => {
+          res.data.errors.forEach((error) => {
             notification.error({
               message: "Error",
               description: error,
@@ -48,6 +48,7 @@ const Report = () => {
       .then((res) => {
         if (res.data.res) {
           setReportData(res.data.report);
+          setChecked(res.data.report.isVerified);
           axios
             .post(`${BACKEND_URL}api/v1/user/getuser`, {
               id: res.data.report.reportedBy,
@@ -147,7 +148,7 @@ const Report = () => {
               Latitude:
               <br />
               <input
-                value={coord.latitude}
+                value={coord.latitude !== 0 ? coord.latitude : "Loading..."}
                 onChange={(e) => {
                   setCoord({
                     ...coord,
@@ -162,7 +163,7 @@ const Report = () => {
               Longitude:
               <br />
               <input
-                value={coord.longitude}
+                value={coord.longitude !== 0 ? coord.longitude : "Loading..."}
                 onChange={(e) => {
                   setCoord({
                     ...coord,
@@ -173,12 +174,29 @@ const Report = () => {
                 type="text"
               />
             </div>
+            <button
+              onClick={() => {
+                navigator.geolocation.getCurrentPosition(
+                  (pos) => {
+                    setCoord({
+                      latitude: pos.coords.latitude,
+                      longitude: pos.coords.longitude,
+                    });
+                  },
+                  console.error,
+                  { enableHighAccuracy: true }
+                );
+              }}
+              className="bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white font-bold shadow-md rounded-md py-2 m-1"
+            >
+              Get current location
+            </button>
           </div>
         </div>
         <div className="flex w-full mx-1 my-2 p-1">
           <div className="flex mr-2">
             <Checkbox
-              disabled={reportData.isVerified}
+              disabled={checked}
               checked={checked}
               onChange={(e) => {
                 setChecked(e.target.checked);

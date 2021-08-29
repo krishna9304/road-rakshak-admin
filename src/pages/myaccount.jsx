@@ -74,7 +74,7 @@ const MyAccount = () => {
             </div>
           </div>
           <hr />
-          <div className="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
+          <div className="items-center w-full p-4 space-y-4 text-gray-500 ">
             <h2 className="max-w-sm mx-auto md:w-1/3">Personal info</h2>
             <div className="max-w-sm mx-auto space-y-5 md:w-2/3">
               <div>
@@ -94,7 +94,7 @@ const MyAccount = () => {
             </div>
           </div>
           <hr />
-          <div className="items-center w-full p-8 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
+          <div className="items-center w-full p-8 space-y-4 text-gray-500">
             <h2 className="max-w-sm mx-auto md:w-4/12">Change password</h2>
             <div className="w-full max-w-sm pl-2 mx-auto space-y-5 md:w-5/12 md:pl-9 md:inline-flex">
               <div className="flex relative ">
