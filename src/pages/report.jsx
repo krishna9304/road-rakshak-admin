@@ -78,6 +78,7 @@ const Report = () => {
       <div className="w-full h-full flex flex-col">
         <div className="w-full justify-center flex">
           <img
+            draggable={false}
             className="max-w-lg w-full"
             src={reportData.siteImage}
             alt="reported site"
@@ -196,7 +197,7 @@ const Report = () => {
         <div className="flex w-full mx-1 my-2 p-1">
           <div className="flex mr-2">
             <Checkbox
-              disabled={checked}
+              disabled={reportData.isVerified}
               checked={checked}
               onChange={(e) => {
                 setChecked(e.target.checked);

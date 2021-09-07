@@ -47,8 +47,8 @@ const SignUp = () => {
   return (
     <div className="w-screen h-screen bg-gray-200 flex justify-center">
       <div className="bg-white w-full md:w-3/4 lg:w-3/4 h-full shadow-xl">
-        <div className="w-full h-1/6 bg-yellow-600 shadow-lg flex justify-center items-center text-4xl md:text-6xl text-white font-extralight">
-          Road Rakshak (Admin Panel)
+        <div className="w-full h-1/6 bg-yellow-600 shadow-lg flex justify-center items-center text-3xl md:text-4xl text-white font-extralight">
+          Road Rakshak <br /> (Admin Panel)
         </div>
         <div className="h-5/6 flex justify-center items-center w-full">
           <div className="flex w-full md:w-1/2 flex-col px-4 py-8 bg-white rounded-lg shadow-lg dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">

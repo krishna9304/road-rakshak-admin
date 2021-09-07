@@ -164,6 +164,7 @@ const PostNews = () => {
                 <button
                   onClick={() => {
                     createNews();
+                    console.log(data);
                   }}
                   className="py-2 px-4  bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-yellow-200 text-white w-full transition ease-in duration-200 text-center text-base font-light shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
