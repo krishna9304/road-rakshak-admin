@@ -83,7 +83,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact>
-            {globalState.auth ? <MyAccount /> : <SignUp />}
+            {globalState.auth ? <MyAccount /> : <SignIn />}
           </Route>
           <Route path="/signup">
             {globalState.auth ? <MyAccount /> : <SignUp />}
@@ -92,7 +92,7 @@ function App() {
             {globalState.auth ? <MyAccount /> : <SignIn />}
           </Route>
           <Route path="/myaccount">
-            {globalState.auth ? <MyAccount /> : <SignUp />}
+            {globalState.auth ? <MyAccount /> : <SignIn />}
           </Route>
           <Route path="/complaintDesk">
             {globalState.auth ? (
@@ -102,18 +102,18 @@ function App() {
                 <NotVerified />
               )
             ) : (
-              <SignUp />
+              <SignIn />
             )}
           </Route>
           <Route path="/postNews">
-            {globalState.auth ? <PostNews /> : <SignUp />}
+            {globalState.auth ? <PostNews /> : <SignIn />}
           </Route>
           <Route path="/verifyuser/:token">
             <VerifyUser />
           </Route>
         </Switch>
         <Route path="/report/:reportid">
-          <Report />
+          {globalState.auth ? <Report /> : <SignIn />}
         </Route>
       </BrowserRouter>
     </div>
