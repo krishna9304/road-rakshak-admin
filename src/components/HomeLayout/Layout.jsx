@@ -14,7 +14,7 @@ const HomeLayout = ({ header, children }) => {
         </div>
         <div className="my-4 flex flex-col" theme="dark">
           <NavLink
-            activeClassName="bg-yellow-600 hover:text-white"
+            activeClassName="bg-indigo-600 hover:text-white"
             className="flex items-center text-white font-light p-2 px-6"
             to="/myaccount"
           >
@@ -22,7 +22,7 @@ const HomeLayout = ({ header, children }) => {
             &nbsp;My Account
           </NavLink>
           <NavLink
-            activeClassName="bg-yellow-600 hover:text-white"
+            activeClassName="bg-indigo-600 hover:text-white"
             className="flex items-center text-white font-light p-2 px-6"
             to="/complaintDesk"
           >
@@ -30,7 +30,7 @@ const HomeLayout = ({ header, children }) => {
             &nbsp;Complaint Desk
           </NavLink>
           <NavLink
-            activeClassName="bg-yellow-600 hover:text-white"
+            activeClassName="bg-indigo-600 hover:text-white"
             className="flex items-center text-white font-light p-2 px-6"
             to="/postNews"
           >
@@ -44,7 +44,12 @@ const HomeLayout = ({ header, children }) => {
           {header}
         </Header>
         <div className="overflow-y-auto mx-8 my-6">
-          <div className="site-layout-background p-6">{children}</div>
+          <div
+            style={{ minHeight: "88vh" }}
+            className="site-layout-background flex flex-col justify-center items-center overflow-auto p-6"
+          >
+            {children}
+          </div>
         </div>
       </Layout>
     </Layout>

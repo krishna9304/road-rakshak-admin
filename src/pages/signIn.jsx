@@ -40,7 +40,7 @@ const SignIn = () => {
   return (
     <div className="w-screen h-screen bg-gray-200 flex justify-center">
       <div className="bg-white w-full md:w-3/4 lg:w-3/4 h-full shadow-xl">
-        <div className="w-full h-1/6 bg-yellow-600 shadow-lg flex justify-center items-center text-4xl md:text-6xl text-white font-extralight">
+        <div className="w-full h-1/6 bg-indigo-600 shadow-lg flex justify-center items-center text-4xl md:text-6xl text-white font-extralight">
           Road Rakshak (Admin Panel)
         </div>
         <div className="h-5/6 flex justify-center items-center w-full">
@@ -158,7 +158,7 @@ const SignIn = () => {
                   onClick={() => {
                     signin();
                   }}
-                  className="py-2 px-4  bg-yellow-600 hover:bg-yellow-500 focus:ring-yellow-300 focus:ring-offset-yellow-300 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                  className="py-2 px-4  bg-indigo-600 hover:bg-indigo-500 focus:ring-indigo-300 focus:ring-offset-indigo-300 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
                   Sign In
                 </button>

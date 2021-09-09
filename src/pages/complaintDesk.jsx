@@ -1,11 +1,14 @@
 import HomeLayout from "../components/HomeLayout/Layout";
-import { Table, Tag, Space, notification } from "antd";
+import { Table, Tag, notification } from "antd";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Text from "antd/lib/typography/Text";
+import { Typography } from "antd";
+const { Paragraph } = Typography;
 
 export const timestampToDate = (milliseconds) => {
   const dateObject = new Date(parseInt(milliseconds));
@@ -56,6 +59,14 @@ const ComplaintDesk = () => {
       title: "Address",
       dataIndex: "address",
       key: "address",
+      render: (address) => (
+        <Paragraph
+          ellipsis={{ expandable: true, symbol: "more" }}
+          className={`w-20 sm:w-40 md:w-60 lg:w-80 overflow-auto`}
+        >
+          {address}
+        </Paragraph>
+      ),
     },
     {
       title: "Hurdle Type",
@@ -71,12 +82,9 @@ const ComplaintDesk = () => {
       title: "Status",
       key: "status",
       render: (text, record) => (
-        <Space
-          className={`text-${record.isVerified ? "green" : "red"}-500`}
-          size="middle"
-        >
-          {record.isVerified ? "Verified!" : "Not Verified!"}
-        </Space>
+        <Text type={record.isVerified ? "success" : "danger"} size="middle">
+          {record.isVerified ? "Verified" : "Not Verified"}
+        </Text>
       ),
     },
   ];

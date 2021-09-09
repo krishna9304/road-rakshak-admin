@@ -87,7 +87,7 @@ const Report = () => {
         <div className="flex w-full shadow m-2 p-1">
           <div className="w-1/2 flex">Reported by: </div>
           <div
-            className="flex text-left w-1/2 font-bold hover:text-yellow-600 cursor-pointer"
+            className="flex text-left w-1/2 font-bold hover:text-indigo-600 cursor-pointer"
             onClick={() => {
               setUserVisible(true);
             }}

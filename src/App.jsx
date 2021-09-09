@@ -19,7 +19,7 @@ import Report from "./pages/report";
 
 function App() {
   let [authDone, setAuthDone] = useState(false);
-  const [cookies, setCookie] = useCookies(["jwtAdmin"]);
+  const [cookies] = useCookies(["jwtAdmin"]);
   let dispatch = useDispatch();
   const globalState = useSelector((state) => state);
   let authUser = () => {

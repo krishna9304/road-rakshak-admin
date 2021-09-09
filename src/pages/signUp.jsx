@@ -47,7 +47,7 @@ const SignUp = () => {
   return (
     <div className="w-screen h-screen bg-gray-200 flex justify-center">
       <div className="bg-white w-full md:w-3/4 lg:w-3/4 h-full shadow-xl">
-        <div className="w-full h-1/6 bg-yellow-600 shadow-lg flex justify-center items-center text-3xl md:text-4xl text-white font-extralight">
+        <div className="w-full h-1/6 bg-indigo-600 shadow-lg flex justify-center items-center text-3xl md:text-4xl text-white font-extralight">
           Road Rakshak <br /> (Admin Panel)
         </div>
         <div className="h-5/6 flex justify-center items-center w-full">
@@ -195,7 +195,7 @@ const SignUp = () => {
                   onClick={() => {
                     signup();
                   }}
-                  className="py-2 px-4  bg-yellow-600 hover:bg-yellow-500 focus:ring-yellow-300 focus:ring-offset-yellow-200 text-white w-1/2 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                  className="py-2 px-4  bg-indigo-600 hover:bg-indigo-500 focus:ring-indigo-300 focus:ring-offset-indigo-200 text-white w-1/2 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
                   Sign Up
                 </button>

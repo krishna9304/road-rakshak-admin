@@ -69,9 +69,9 @@ const PostNews = () => {
     <HomeLayout header={"Post News"}>
       <div className="w-full flex justify-center items-center">
         <div className="flex w-full max-w-sm space-x-3">
-          <div className="w-full max-w-2xl px-5 py-10 m-auto bg-white rounded-lg dark:bg-gray-800 shadow-xl  border-t-4 border-yellow-500">
-            <div className="mb-6 text-lg font-light text-center text-gray-800 dark:text-white">
-              Post about what's happening in Rohtak!
+          <div className="w-full max-w-2xl px-5 py-10 m-auto bg-white rounded-lg dark:bg-gray-800 shadow-xl  border-t-4 border-indigo-500">
+            <div className="mb-6 text-lg font-bold text-center text-gray-800 dark:text-white">
+              Post about what's happening in Rohtak
             </div>
             <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
               <div className="col-span-2">
@@ -86,7 +86,7 @@ const PostNews = () => {
                     }}
                     type="text"
                     className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                    placeholder="Write a headline"
+                    placeholder="Headline"
                   />
                 </div>
               </div>
@@ -109,7 +109,7 @@ const PostNews = () => {
                       }));
                       setReference("");
                     }}
-                    className="bg-green-500 px-4 rounded-lg text-white font-bold shadow-md border"
+                    className="bg-green-500 hover:bg-green-600 duration-300 px-4 rounded-lg text-white font-bold shadow-md border"
                   >
                     Add
                   </button>
@@ -166,7 +166,7 @@ const PostNews = () => {
                     createNews();
                     console.log(data);
                   }}
-                  className="py-2 px-4  bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-yellow-200 text-white w-full transition ease-in duration-200 text-center text-base font-light shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                  className="py-2 px-4  bg-indigo-500 hover:bg-indigo-600 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-light shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
                   Post
                 </button>

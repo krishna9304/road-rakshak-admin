@@ -1,4 +1,4 @@
-import { notification, Modal } from "antd";
+import { notification, Modal, Tag } from "antd";
 import axios from "axios";
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,8 +28,8 @@ const MyAccount = () => {
 
   return (
     <HomeLayout header={"My Account"}>
-      <div className="container max-w-2xl mx-auto shadow-md md:w-3/4">
-        <div className="p-4 bg-gray-100 border-t-2 border-indigo-400 rounded-lg bg-opacity-5">
+      <div className="container max-w-2xl mx-auto shadow-xl md:w-3/4">
+        <div className="p-4 bg-gray-100 border-t-4 border-indigo-400 rounded-lg bg-opacity-5">
           <div className="max-w-sm mx-auto md:w-full md:mx-0">
             <div className="inline-flex items-center space-x-4">
               <div
@@ -47,7 +47,12 @@ const MyAccount = () => {
                   return ProfileText;
                 })()}
               </div>
-              <div className="text-gray-600 text-xl">{user.name} (Admin)</div>
+              <div className="text-gray-600 text-xl">
+                {user.name}{" "}
+                <Tag color="blue" className="uppercase">
+                  ADMIN
+                </Tag>
+              </div>
             </div>
           </div>
         </div>
@@ -102,7 +107,7 @@ const MyAccount = () => {
                   onClick={() => {
                     setShowPass((sp) => !sp);
                   }}
-                  className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm"
+                  className="text-gray-400 hover:text-gray-500 duration-300 rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 shadow-sm text-sm"
                 >
                   <svg
                     width="15"
@@ -134,7 +139,7 @@ const MyAccount = () => {
                   onClick={() => {
                     setShowNewPass((sp) => !sp);
                   }}
-                  className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm"
+                  className="text-gray-400 hover:text-gray-500 duration-300 rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 shadow-sm text-sm"
                 >
                   <svg
                     width="15"
@@ -252,7 +257,7 @@ const MyAccount = () => {
             onClick={() => {
               setShowOldPass((sp) => !sp);
             }}
-            className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm"
+            className="text-gray-400 hover:text-gray-500 duration-300 rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 shadow-sm text-sm"
           >
             <svg
               width="15"
