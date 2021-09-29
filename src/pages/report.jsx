@@ -1,9 +1,11 @@
-import { Checkbox, notification } from "antd";
+import { Button, Checkbox, notification } from "antd";
 import Modal from "antd/lib/modal/Modal";
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import HomeLayout from "../components/HomeLayout/Layout";
 import { BACKEND_URL } from "../constants";
@@ -18,6 +20,7 @@ const Report = () => {
     latitude: "",
     longitude: "",
   });
+  const user = useSelector((state) => state.user);
   const updateReport = () => {
     axios
       .post(`${BACKEND_URL}api/v1/report/updateReport`, {
@@ -42,12 +45,43 @@ const Report = () => {
       })
       .catch(console.error);
   };
+  const history = useHistory();
+
+  const deleteReport = () => {
+    axios
+      .post(`${BACKEND_URL}api/v1/report/delete`, {
+        admin: user._id,
+        report: reportData._id,
+      })
+      .then((res) => {
+        if (res.data.res) {
+          notification.success({
+            message: "Success",
+            description: res.data.msg,
+          });
+          history.push("/complaintDesk");
+        } else {
+          console.log(res.data);
+          res.data.errors.forEach((error) => {
+            notification.error({
+              message: "Error",
+              description: error,
+            });
+          });
+        }
+      })
+      .catch(console.error);
+  };
   useEffect(() => {
     axios
       .post(`${BACKEND_URL}api/v1/report/getreport`, { id: reportId })
       .then((res) => {
         if (res.data.res) {
           setReportData(res.data.report);
+          setCoord({
+            latitude: res.data.report.locationCoords.latitude,
+            longitude: res.data.report.locationCoords.longitude,
+          });
           setChecked(res.data.report.isVerified);
           axios
             .post(`${BACKEND_URL}api/v1/user/getuser`, {
@@ -127,13 +161,13 @@ const Report = () => {
           <div className="w-1/2 flex">Location coordinates: </div>
           <div className="flex flex-col text-left w-1/2">
             <div>
-              Lat:{" "}
+              Lat:&nbsp;
               {reportData.locationCoords !== undefined
                 ? reportData.locationCoords.latitude
                 : "Loading.."}
             </div>
             <div>
-              Long:{" "}
+              Long:&nbsp;
               {reportData.locationCoords !== undefined
                 ? reportData.locationCoords.longitude
                 : "Loading.."}
@@ -210,15 +244,24 @@ const Report = () => {
               : "Click to verify this report"}
           </div>
         </div>
-        <div className="w-full">
-          <button
+        <div className="w-full flex gap-4 mt-8">
+          <Button
             onClick={() => {
               updateReport();
             }}
-            className="bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white font-bold shadow-md rounded-md p-2"
+            type="primary"
           >
             Update report
-          </button>
+          </Button>
+          <Button
+            onClick={() => {
+              deleteReport();
+            }}
+            type="primary"
+            danger
+          >
+            DELETE REPORT
+          </Button>
         </div>
       </div>
       <Modal

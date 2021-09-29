@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./App.css";
 import { BACKEND_URL } from "./constants";
 import { setAuth, setUser } from "./redux/actions/actions";
 import axios from "axios";
