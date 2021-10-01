@@ -67,7 +67,7 @@ const PostNews = () => {
   return (
     <HomeLayout header={"Post News"}>
       <div className="w-full flex justify-center items-center">
-        <div className="flex w-full max-w-sm space-x-3">
+        <div className="flex w-full space-x-3">
           <div className="w-full max-w-2xl px-5 py-10 m-auto bg-white rounded-lg dark:bg-gray-800 shadow-xl  border-t-4 border-indigo-500">
             <div className="mb-6 text-lg font-bold text-center text-gray-800 dark:text-white">
               Post about what's happening in Rohtak

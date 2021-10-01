@@ -27,7 +27,6 @@ const ComplaintDesk = () => {
       .then((res) => {
         if (res.data.res) {
           setData(res.data.reports);
-          console.log(data);
           notification.success({
             message: "Success",
             description: "Reports returned succesfully!",

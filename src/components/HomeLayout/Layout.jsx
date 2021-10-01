@@ -46,7 +46,9 @@ const HomeLayout = ({ header, children }) => {
         <div className="overflow-y-auto mx-8 my-6">
           <div
             style={{ minHeight: "88vh" }}
-            className="site-layout-background flex flex-col justify-center items-center overflow-auto p-6"
+            className={`site-layout-background flex flex-col ${
+              header.toLowerCase() === "complaint desk" ? "" : "justify-center"
+            } items-center overflow-auto p-6`}
           >
             {children}
           </div>
