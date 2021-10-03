@@ -1,4 +1,4 @@
-import { notification } from "antd";
+import { notification, Spin } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import { BACKEND_URL } from "../constants";
 const PostNews = () => {
   const user = useSelector((state) => state.user);
   const [reference, setReference] = useState("");
+  const [spin, setSpin] = useState(false);
   const [data, setData] = useState({
     postedBy: user._id,
     headline: "",
@@ -40,6 +41,7 @@ const PostNews = () => {
         formData,
         config
       );
+      setSpin(false);
       if (!res.data.res) {
         res.data.errors.forEach((err) => {
           notification.error({ message: "Failed", description: err });
@@ -58,6 +60,7 @@ const PostNews = () => {
         });
       }
     } else {
+      setSpin(false);
       notification.error({
         message: "Error",
         description: "Please fill all the details correctly!",
@@ -162,12 +165,12 @@ const PostNews = () => {
               <div className="col-span-2 text-right">
                 <button
                   onClick={() => {
+                    setSpin(true);
                     createNews();
-                    console.log(data);
                   }}
                   className="py-2 px-4  bg-indigo-500 hover:bg-indigo-600 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-light shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
-                  Post
+                  Post {spin ? <Spin /> : null}
                 </button>
               </div>
             </div>

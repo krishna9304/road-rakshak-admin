@@ -1,4 +1,4 @@
-import { notification } from "antd";
+import { notification, Spin } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -7,10 +7,12 @@ import { BACKEND_URL } from "../constants";
 import { setAuth, setUser } from "../redux/actions/actions";
 
 const SignIn = () => {
+  const [spin, setSpin] = useState(false);
   const signin = () => {
     axios
       .post(`${BACKEND_URL}api/v1/adminAuth/signIn`, userData)
       .then((res) => {
+        setSpin(false);
         if (res.data.res) {
           document.cookie = "jwtAdmin=" + res.data.jwtAdmin;
           notification.success({
@@ -28,7 +30,8 @@ const SignIn = () => {
             });
           });
         }
-      });
+      })
+      .catch(console.error);
   };
   const [userData, setUserData] = useState({
     password: "",
@@ -99,6 +102,7 @@ const SignIn = () => {
                   <input
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
+                        setSpin(true);
                         signin();
                       }
                     }}
@@ -136,6 +140,7 @@ const SignIn = () => {
                   <input
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
+                        setSpin(true);
                         signin();
                       }
                     }}
@@ -156,11 +161,12 @@ const SignIn = () => {
               <div className="flex w-full">
                 <button
                   onClick={() => {
+                    setSpin(true);
                     signin();
                   }}
                   className="py-2 px-4  bg-indigo-600 hover:bg-indigo-500 focus:ring-indigo-300 focus:ring-offset-indigo-300 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
-                  Sign In
+                  Sign In {spin ? <Spin /> : null}
                 </button>
               </div>
             </div>

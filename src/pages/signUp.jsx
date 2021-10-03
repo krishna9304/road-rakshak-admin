@@ -1,4 +1,4 @@
-import { notification } from "antd";
+import { notification, Spin } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -7,9 +7,11 @@ import { BACKEND_URL } from "../constants";
 import { setAuth, setUser } from "../redux/actions/actions";
 
 const SignUp = () => {
+  const [spin, setSpin] = useState(false);
   const signup = () => {
     if (repass === data.password) {
       axios.post(`${BACKEND_URL}api/v1/adminAuth/signUp`, data).then((res) => {
+        setSpin(false);
         if (res.data.res) {
           document.cookie = "jwtAdmin=" + res.data.jwtAdmin;
           notification.success({
@@ -29,6 +31,7 @@ const SignUp = () => {
         }
       });
     } else {
+      setSpin(false);
       notification.error({
         message: "Invalid form",
         description: "Password does not match",
@@ -103,6 +106,7 @@ const SignUp = () => {
                 <input
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
+                      setSpin(true);
                       signup();
                     }
                   }}
@@ -122,6 +126,7 @@ const SignUp = () => {
                 <input
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
+                      setSpin(true);
                       signup();
                     }
                   }}
@@ -142,6 +147,7 @@ const SignUp = () => {
                 <input
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
+                      setSpin(true);
                       signup();
                     }
                   }}
@@ -162,6 +168,7 @@ const SignUp = () => {
                 <input
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
+                      setSpin(true);
                       signup();
                     }
                   }}
@@ -178,6 +185,7 @@ const SignUp = () => {
                 <input
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
+                      setSpin(true);
                       signup();
                     }
                   }}
@@ -193,11 +201,12 @@ const SignUp = () => {
               <div className="flex w-full my-4 justify-center">
                 <button
                   onClick={() => {
+                    setSpin(true);
                     signup();
                   }}
                   className="py-2 px-4  bg-indigo-600 hover:bg-indigo-500 focus:ring-indigo-300 focus:ring-offset-indigo-200 text-white w-1/2 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
-                  Sign Up
+                  Sign Up {spin ? <Spin /> : null}
                 </button>
               </div>
             </div>

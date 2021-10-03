@@ -46,7 +46,6 @@ const VerifyUser = () => {
               axios
                 .post(`${BACKEND_URL}api/v1/admin/verified`, { token })
                 .then((res) => {
-                  console.log(res.data);
                   if (res.data.res) {
                     notification.success({
                       message: "Success",

@@ -61,7 +61,6 @@ const Report = () => {
           });
           history.push("/complaintDesk");
         } else {
-          console.log(res.data);
           res.data.errors.forEach((error) => {
             notification.error({
               message: "Error",
