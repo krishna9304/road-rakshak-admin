@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Road Rakshak Admin Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the admin dashboard of the frontend application [Road Rakshak](https://github.com/krishna9304/road-rakshak/). The deployed version of the application is live on vercel --- [https://road-rakshak-admin.vercel.app/](https://road-rakshak-admin.vercel.app/).
 
-## Available Scripts
+### This is one of the three components of the project. Following are all the components of the project
+- [Road Rakshak User Application](https://github.com/krishna9304/road-rakshak/)
+- [Admin Dashboard](https://github.com/krishna9304/road-rakshak-admin/)
+- [Road Rakshak Server](https://github.com/krishna9304/road-rakshak-server/)
 
-In the project directory, you can run:
+# Setting up the development environment
+  1. Clone the repository `$ git clone https://github.com/krishna9304/road-rakshak-admin.git`
+  2. Install all the dependencies using command `$ yarn`
+  4. Run `$ yarn start`.
+  5. The application should start on port 3000. You can visit the application on `http://localhost:3000`
+ 
+# Some screenshots of the application
+<img width="1680" alt="Screenshot 2021-10-03 at 9 51 15 AM" src="https://user-images.githubusercontent.com/71918441/135739677-fe898d47-fe63-4b32-b04f-60c7764642db.png">
+<img width="1680" alt="Screenshot 2021-10-03 at 9 50 31 AM" src="https://user-images.githubusercontent.com/71918441/135739678-c33adbc6-cc59-4745-96e5-9aec73277a8c.png">
+<img width="1680" alt="Screenshot 2021-10-03 at 9 50 48 AM" src="https://user-images.githubusercontent.com/71918441/135739682-2a51cca6-0038-401f-a164-825916e00cc9.png">
+<img width="1680" alt="Screenshot 2021-10-03 at 9 50 58 AM" src="https://user-images.githubusercontent.com/71918441/135739686-d6f620ec-c88d-4e77-9a2a-1ab40156cf33.png">
 
-### `yarn start`
+# Features
+### 1. Secure Authentication
+All the details of the admins are stored securely in our database and the password of every admin is hashed by a hashing algorithm, so, not even us will be able to access other people's account.
+### 2. Email verification
+Every admin in the portal should verify his/her email to use our services.
+### 3. Report verification
+Admin will verify the reports based on the severity of the condition. Also, when the hurdles are fixed, the admin can delete the report.
+### 4. Post News on a daily basis
+Admins can post different sort of articles, blogs or news on the portal so that the users can stay updated.
+### 3. Spam free
+All the hurdles reported by the users will only get uploaded to the map, only when they are verified by the admin. So there are no chances of spam. Also, all the accounts on the portal are verified through email.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Technologies Used
+  - [React.JS](https://reactjs.org/)
+  - [Redux.JS](https://redux.js.org/)
+  - [Ant Design](https://ant.design/)
+  - [Tailwind CSS](https://tailwindcss.com/)
