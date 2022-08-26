@@ -27,10 +27,6 @@ const ComplaintDesk = () => {
       .then((res) => {
         if (res.data.res) {
           setData(res.data.reports);
-          notification.success({
-            message: "Success",
-            description: "Reports returned succesfully!",
-          });
         } else {
           notification.error({
             message: "Error!",

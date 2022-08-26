@@ -7,7 +7,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SignUp from "./pages/signUp";
 import SignIn from "./pages/signIn";
 import MyAccount from "./pages/myaccount";
-import { notification } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import VerifyUser from "./pages/verifyuser";
 import NotVerified from "./pages/notverified";
@@ -37,10 +36,6 @@ function App() {
                 dispatch(setAuth(true));
                 dispatch(setUser(res.data.userData));
                 setAuthDone(true);
-                notification.success({
-                  message: "Success",
-                  description: res.data.msg,
-                });
               } else {
                 dispatch(setAuth(false));
                 dispatch(setUser(null));
